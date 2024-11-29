@@ -37,7 +37,7 @@ const Services = () => {
         }}
       >
         <source
-          src="https://videocdn.cdnpk.net/videos/b617a712-7e46-567e-8013-b4240ecbc023/horizontal/previews/clear/large.mp4?token=exp=1732891910~hmac=5ee30ffb003d91377b2a3b255df2a5938e583c87c802b94d15a52f775e5418a8"
+          src="assets/Video/animation.mp4"
           type="video/mp4"
         />
         Your browser does not support the video tag.
