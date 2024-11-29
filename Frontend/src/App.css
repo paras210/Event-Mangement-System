@@ -1,0 +1,51 @@
+.intro-section {
+  height: 80vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: brightness(0.6); /* Darkens video for better text contrast */
+}
+
+.content {
+  z-index: 1;
+}
+
+
+
+
+/* navbar button */
+/* Navbar hover effect */
+.navbar-nav .hover-effect:hover {
+  color: #f8c38e !important;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Buttons */
+.stylish-btn {
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.stylish-btn:hover {
+  background: linear-gradient(to right, #ffdab9, #d29b6e);
+  color: #5c4033 !important;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+/* footer */
+.color{
+  background-color: #000000;
+}
