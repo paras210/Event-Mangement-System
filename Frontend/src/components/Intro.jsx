@@ -12,7 +12,7 @@ const IntroSection = () => {
         playsInline
       >
         <source
-          src="https://videocdn.cdnpk.net/videos/e14b6f2c-54e4-480c-8b1a-ea57dff74939/horizontal/previews/clear/large.mp4?token=exp=1732896645~hmac=bc57c8c1bbf5fb6fa2cf67d57b23e22e71208d08459d949c39382e5f4b874e54" // Replace with a suitable video URL
+          src="assets/Video/cheers.mp4" // Replace with a suitable video URL
           type="video/mp4"
         />
         Your browser does not support the video tag.
