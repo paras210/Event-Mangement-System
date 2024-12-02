@@ -1,17 +1,16 @@
 import React from "react";
 
-const Navbar = () => {
+const Navbar = ({ onLoginClick }) => {
   return (
     <nav
       className="navbar navbar-expand-lg navbar-dark"
       style={{
-        background: "linear-gradient(to right,  rgb(24 14 8), rgb(138, 90, 68))",
+        background: "linear-gradient(to right, rgb(24 14 8), rgb(138, 90, 68))",
         opacity: 0.97,
         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.15)",
       }}
     >
-      <div className="container">
-        {/* Brand Logo */}
+      <div className="container sticky-top">
         <a
           className="navbar-brand d-flex align-items-center text-white fw-bold fs-3"
           href="/"
@@ -36,23 +35,19 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          {/* Centered Links */}
-          <ul className="navbar-nav mx-auto">
-            
-          </ul>
-          {/* Right-aligned Buttons */}
+          <ul className="navbar-nav mx-auto"></ul>
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a
+              <button
                 className="btn btn-light mx-2 fw-bold stylish-btn"
-                href="/login"
+                onClick={onLoginClick}
               >
                 Login
-              </a>
+              </button>
             </li>
             <li className="nav-item">
               <a
-                className="btn btn-outline-light fw-bold stylish-btn"
+                className="btn mt-2 btn-outline-light fw-bold stylish-btn"
                 href="/signup"
               >
                 Signup
