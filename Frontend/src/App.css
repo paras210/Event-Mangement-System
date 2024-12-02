@@ -44,7 +44,14 @@
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-
+.btnlog{
+  border: none;
+  color: white;
+}
+.btnlog:hover{
+color:white;
+border: 2px black solid;
+} 
 /* footer */
 .color{
   background-color: #000000;
@@ -62,10 +69,6 @@
   padding: 20px;
 }
 
-.blurred {
-  filter: blur(5px);
-  pointer-events: none; /* Prevent interactions with blurred content */
-}
 
 /* Header and Main Content */
 header {
@@ -78,47 +81,6 @@ button {
   cursor: pointer;
 }
 
-/* General Page Styles */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
-
-/* Wrapper for the main page content */
-.content {
-  transition: filter 0.3s ease-in-out;
-}
-
-.blurred {
-  filter: blur(5px);
-  pointer-events: none; /* Disable interactions with blurred content */
-}
-
-/* Login Modal Background */
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  display: flex;
-  justify-content: flex-end; /* Align modal to the right */
-  align-items: center;
-}
-
-/* Login Modal */
-/* 
-/* Main Content Wrapper */
-.main-content {
-  transition: filter 0.3s ease-in-out;
-}
-
-.blurred {
-  filter: blur(5px);
-  pointer-events: none; /* Prevent interaction with blurred background */
-}
 
 /* Modal Backdrop */
 .modal-backdrop {
@@ -127,58 +89,109 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for backdrop */
+  z-index: 1000; /* Layer above main content but below modal */
   display: flex;
-  justify-content: flex-end; /* Align the modal to the right */
-  align-items: center;
-}
-
-/* Login Modal */
-
-/* Apply blur effect only to sections with this class */
-.blurred {
-  filter: blur(5px);
-  pointer-events: none; /* Disable interactions on blurred content */
-  transition: filter 0.3s ease-in-out;
-}
-
-/* Modal Backdrop */
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: center;
+  align-items: center; /* Center modal in the viewport */
 }
 
 /* Login Modal */
 .login-modal {
-  background-color: white;
+  position: relative;
+  background-color: white; /* White background for contrast */
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  width: 300px;
-  margin-right: 30px;
-  z-index: 1010;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  width: 350px;
+  max-width: 90%; /* Ensure modal is responsive */
+  z-index: 1010; /* Layer above backdrop */
+  text-align: center; /* Center-align content */
 }
 
+/* Modal Header */
 .login-modal h5 {
-  margin-top: 20px;
-  font-size: 1.25rem;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
   font-weight: bold;
-  text-align: center;
+  color: #333; /* Dark text color */
 }
 
+/* Form Labels */
+.login-modal .form-label {
+  font-weight: bold;
+  color: #5c4033; /* Match the custom button color for theme consistency */
+}
+
+/* Form Controls */
 .login-modal .form-control {
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  padding: 10px;
   margin-bottom: 15px;
 }
 
-.login-modal .btn {
+/* Buttons */
+.btnlog {
+  background-color: #5c4033; /* Custom brown color */
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btnlog:hover {
+  background-color: #432d22; /* Darker brown for hover effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+}
+
+.btn-secondary {
+  background-color: #6c757d; /* Bootstrap secondary color */
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268; /* Darker shade of secondary color */
+}
+
+/* Blurred Background for Main Content */
+.blurred-content {
+  filter: blur(5px); /* Apply blur effect */
+  pointer-events: none; /* Disable interactions */
+  user-select: none; /* Prevent text selection */
+}
+
+/* Modal Backdrop */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for backdrop */
+  z-index: 1000; /* Layer above blurred content */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center modal */
+}
+
+/* Modal Styles */
+.login-modal,
+.signup-modal {
+  position: relative;
+  background-color: white; /* White background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  width: 350px;
+  z-index: 1010; /* Layer above backdrop */
+  text-align: center;
+}
+
+.btnfrm:hover{
+background-color: #33333386;
+border: 2px solid #eee;
+}
+.btnfrm:focus{
+background-color: #33333386;
+
 }

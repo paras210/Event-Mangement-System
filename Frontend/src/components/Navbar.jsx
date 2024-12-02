@@ -1,6 +1,6 @@
 import React from "react";
 
-const Navbar = ({ onLoginClick }) => {
+const Navbar = ({ onLoginClick , onSignClick}) => {
   return (
     <nav
       className="navbar navbar-expand-lg navbar-dark"
@@ -46,12 +46,12 @@ const Navbar = ({ onLoginClick }) => {
               </button>
             </li>
             <li className="nav-item">
-              <a
+              <button
                 className="btn mt-2 btn-outline-light fw-bold stylish-btn"
-                href="/signup"
+                onClick={onSignClick}
               >
                 Signup
-              </a>
+              </button>
             </li>
           </ul>
         </div>

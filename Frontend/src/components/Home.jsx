@@ -7,9 +7,11 @@ import Para from "./Para";
 import Services from "./Services";
 import Footer from "./Footer";
 import LoginModal from "./LoginModal";
+import SignupModal from "./SignupModal";
 
 export default function Home() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isSignOpen, setIsSignOpen] = useState(false);
 
   const handleLoginOpen = () => {
     setIsLoginOpen(true);
@@ -19,11 +21,18 @@ export default function Home() {
     setIsLoginOpen(false);
   };
 
+  const handleSignOpen = () => {
+    setIsSignOpen(true);
+  };
+
+  const handleSignClose = () => {
+    setIsSignOpen(false);
+  };
+
   return (
-    <>
-      <Navbar onLoginClick={handleLoginOpen} />
-      {/* Wrap only the sections you want to blur */}
-      <div className={isLoginOpen ? "blurred" : ""}>
+    <div>
+      <div className={isLoginOpen || isSignOpen ? "blurred-content" : ""}>
+        <Navbar onLoginClick={handleLoginOpen} onSignClick={handleSignOpen} />
         <Intro />
         <Para />
         <Features />
@@ -31,8 +40,9 @@ export default function Home() {
         <Services />
         <Footer />
       </div>
-      {/* Show LoginModal */}
+
       {isLoginOpen && <LoginModal onClose={handleLoginClose} />}
-    </>
+      {isSignOpen && <SignupModal onClose={handleSignClose} />}
+    </div>
   );
 }
