@@ -28,7 +28,7 @@ const IntroSection = () => {
         </p>
         <div className="mt-4">
   <a
-    href="/host"
+    href="/listevent"
     className="btn mx-2 fw-bold px-4 py-2"
     style={{
       backgroundColor: "#C99B6E", /* Light brown background */
