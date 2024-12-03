@@ -129,7 +129,7 @@
 /* General Colors */
 /* General Colors */
 :root {
-  --primary-color: #4caf50; /* Vibrant green */
+  --primary-color: #ffffff; /* Vibrant green */
   --secondary-color: #f8f9fa; /* Light grey */
   --text-color: #000000; /* Black for list items */
   --hover-color: #81c784; /* Soft green for hover */
@@ -180,7 +180,7 @@
   background-color: var(--hover-color) !important;
   color: black !important;
   transform: scale(1.1);
-  box-shadow: 0 5px 15px rgba(129, 199, 132, 0.5);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
 }
 
 /* Symmetry and Spacing */
