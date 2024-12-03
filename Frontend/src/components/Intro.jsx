@@ -36,6 +36,8 @@ const Intro = ({onLoginClick}) => {
               e.target.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
               const arrow = e.target.querySelector('span');
               if (arrow) {
+                arrow.style.backgroundColor="transparent";
+                arrow.style.color="black";     
                 arrow.style.transform = 'translateX(5px)';
               }
             }}
@@ -45,6 +47,8 @@ const Intro = ({onLoginClick}) => {
               e.target.style.boxShadow = 'none';
               const arrow = e.target.querySelector('span');
               if (arrow) {
+                arrow.style.backgroundColor="transparent";
+                arrow.style.color="white";     
                 arrow.style.transform = 'translateX(0)';
               }
             }}
