@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 const Services = () => {
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setInView(true);
+      },
+      { threshold: 0.3 } // Trigger when 30% of the section is in view
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const services = [
     "Lighting",
     "DJ Services",
@@ -18,6 +33,7 @@ const Services = () => {
 
   return (
     <div
+      ref={sectionRef}
       className="section pb-5 position-relative"
       style={{
         color: "#fff",
@@ -55,7 +71,7 @@ const Services = () => {
       {/* Services Content */}
       <div className="container text-center py-5">
         <h2
-          className="fw-bold mb-4"
+          className={`fw-bold mb-4 section-heading ${inView ? "animate-heading" : "invisible"}`}
           style={{
             fontSize: "3rem", // Enlarged text
             color: "white",
@@ -64,7 +80,7 @@ const Services = () => {
           <span style={{ color: "#d29b6e" }}>Get Work Done</span> in Different Categories
         </h2>
         <p
-          className="mb-5"
+          className={`mb-5 ${inView ? "animate-description" : "invisible"}`}
           style={{
             fontSize: "1.2rem",
             fontFamily: "'Roboto', sans-serif",
@@ -78,7 +94,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="col-6 col-md-4 col-lg-3 d-flex justify-content-center"
+              className={`col-6 col-md-4 col-lg-3 d-flex justify-content-center service-card-container ${inView ? `animate-service-${index}` : "invisible"}`}
             >
               <div
                 className="p-4"
@@ -87,7 +103,6 @@ const Services = () => {
                   borderRadius: "15px",
                   boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
                   textAlign: "center",
-                  transition: "transform 0.3s ease",
                   width: "100%",
                 }}
               >
@@ -105,6 +120,63 @@ const Services = () => {
           ))}
         </div>
       </div>
+
+      <style>
+        {`
+          .invisible {
+            opacity: 0;
+            transform: translateY(70px);
+          }
+
+          /* Smooth Transition for Hover Effects */
+          .service-card-container {
+            transition: transform 1s ease-out;  /* Slow down hover effect */
+          }
+
+          .section-heading, .animate-heading {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out; /* Slow down entrance */
+          }
+
+          .animate-heading {
+            opacity: 1;
+            transform: translateY(0);
+          }
+
+          .animate-description {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out 0.3s; /* Slow down description entrance */
+          }
+
+          .animate-description {
+            opacity: 1;
+            transform: translateY(0);
+          }
+
+          /* Staggered animation for each service */
+          ${Array.from({ length: 12 }, (_, index) => {
+            return `
+              .animate-service-${index} {
+                animation: fade-in 1.8s ease-out ${index * 0.5}s forwards;
+              }
+            `;
+          }).join("")}
+
+          @keyframes fade-in {
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          /* Hover effect for card */
+          .service-card-container:hover {
+            transform: translateY(-10px);
+          }
+        `}
+      </style>
     </div>
   );
 };

@@ -490,3 +490,45 @@ form {
 
 /* feature */
 
+/* footer */
+
+.invisible {
+  opacity: 0;
+  transform: translateY(70px);
+}
+
+.footer-heading, .footer-description, .footer-icons {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.5s ease-out; /* Slow down entrance */
+}
+
+.footer-heading {
+  transition: all 0.5s ease-out;
+}
+
+.footer-icons {
+  transition: all 0.5s ease-out 0.5s; /* Social icons will appear after the text */
+}
+
+.animate-footer-heading {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-footer-description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-footer-icons {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
