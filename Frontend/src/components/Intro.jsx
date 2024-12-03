@@ -11,7 +11,7 @@ const Intro = ({onLoginClick}) => {
           <p className="intro-text">
             Your one-stop solution for managing and synchronizing unforgettable events.
           </p>
-          <button
+          <button onClick={onLoginClick}
             className="btn intro-btn py-0 px-0"
             style={{
               backgroundColor: 'black',
