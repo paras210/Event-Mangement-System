@@ -1,6 +1,11 @@
 import React from 'react';
 
 const Navbar = ({onLoginClick}) => {
+
+  const scrollToSection = () => {
+    document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-gradient">
       <div className="container">
@@ -23,17 +28,18 @@ const Navbar = ({onLoginClick}) => {
         {/* Navbar Links */}
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto align-items-center">
-            <li className="nav-item">
-              <a className="nav-link text-uppercase px-3 hover-effect" href="#services">Services</a>
+          <li className="nav-item">
+              <button onClick={scrollToSection} className="nav-link text-uppercase px-3 hover-effect" href="#about">About</button>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-uppercase px-3 hover-effect" href="#about">About</a>
+              <button className="nav-link text-uppercase px-3 hover-effect" href="#services">Services</button>
+            </li>
+            
+            <li className="nav-item">
+              <button className="nav-link text-uppercase px-3 hover-effect" href="#reviews">Reviews</button>
             </li>
             <li className="nav-item">
-              <a className="nav-link text-uppercase px-3 hover-effect" href="#reviews">Reviews</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link text-uppercase px-3 hover-effect" href="#contact">Contact Us</a>
+              <button className="nav-link text-uppercase px-3 hover-effect" href="#contact">Contact Us</button>
             </li>
             <li className="nav-item">
               <button className="btn custom-btn ms-3" onClick={onLoginClick}>Login</button>

@@ -2,11 +2,11 @@ import React from 'react';
 
 const Intro = ({onLoginClick}) => {
   return (
-    <div className="container-fluid intro-container d-flex align-items-center py-0 px-0">
+    <div className="container-fluid intro-container d-flex align-items-center py-0 px-0 ">
       {/* Row to hold both sections */}
-      <div className="row w-100 mx-0 h-100">
+      <div className="row w-100 mx-0 h-100" >
         {/* Left Section */}
-        <div className="left-section text-center text-container col-12 col-lg-12 col-xl-6">
+        <div className="left-section text-container col-12 col-lg-12 col-xl-6" >
           <h1 className="intro-heading">Welcome, <br />to EventSync</h1>
           <p className="intro-text">
             Your one-stop solution for managing and synchronizing unforgettable events.

@@ -443,7 +443,9 @@ background-color: #33333386;
   height: 100%;
   z-index: 1050;
 }
-
+#about{
+  padding-top: 50px ;
+}
 .login-modal {
   background-color: #fff; /* White background */
   border-radius: 8px;
