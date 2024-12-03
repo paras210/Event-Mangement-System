@@ -2,7 +2,7 @@ import React from 'react';
 
 const Intro = () => {
   return (
-    <div className="container-xl intro-container d-flex align-items-center py-0 px-0">
+    <div className="container-fluid intro-container d-flex align-items-center py-0 px-0">
       {/* Left Section */}
       <div className="row w-100 mx-0 h-100">
         <div className="left-section text-container col-lg-6">
