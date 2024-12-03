@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Navbar = () => {
+const Navbar = ({onLoginClick}) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-gradient">
       <div className="container">
@@ -36,7 +36,7 @@ const Navbar = () => {
               <a className="nav-link text-uppercase px-3 hover-effect" href="#contact">Contact Us</a>
             </li>
             <li className="nav-item">
-              <button className="btn custom-btn ms-3">Login</button>
+              <button className="btn custom-btn ms-3" onClick={onLoginClick}>Login</button>
             </li>
           </ul>
         </div>

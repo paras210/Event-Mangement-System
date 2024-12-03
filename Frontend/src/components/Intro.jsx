@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Intro = () => {
+const Intro = ({onLoginClick}) => {
   return (
     <div className="container-fluid intro-container d-flex align-items-center py-0 px-0">
       {/* Left Section */}
@@ -10,8 +10,8 @@ const Intro = () => {
           <p className="intro-text">
             Your one-stop solution for managing and synchronizing unforgettable events.
           </p>
-          <button
-            className="btn intro-btn py-0 px-0"
+          <button  onClick={onLoginClick}
+            className="btn intro-btn py-0 px-0 "
             style={{
               backgroundColor: 'black',
               color: 'white',
@@ -27,15 +27,16 @@ const Intro = () => {
               justifyContent: 'center',
               width: '50%', // Reduced width
               transition: 'all 0.3s ease',
-              position: 'relative', // Added relative positioning for the button to position the arrow
+              position: 'relative',
             }}
             onMouseOver={(e) => {
               e.target.style.backgroundColor = 'white';
               e.target.style.color = 'black';
               e.target.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.2)';
-              // Find the arrow element and animate only if it's present
               const arrow = e.target.querySelector('span');
               if (arrow) {
+                arrow.style.backgroundColor="transparent";
+                arrow.style.color="black";             
                 arrow.style.transform = 'translateX(5px)';
               }
             }}
@@ -46,13 +47,15 @@ const Intro = () => {
               // Reset arrow position if it's present
               const arrow = e.target.querySelector('span');
               if (arrow) {
+                arrow.style.backgroundColor="transparent";
+                arrow.style.color="white";     
                 arrow.style.transform = 'translateX(0)';
               }
             }}
           >
             Explore Now
-            <span className='fs-3'
-             style={{ marginLeft: '8px',transition: 'transform 0.3s ease' }}>&#8594;</span> {/* Right arrow */}
+            <span className='fs-3 icon'
+             style={{ marginLeft: '8px',transition: 'transform 0.3s ease' ,backgroundColor:'transparent', }}>&#8594;</span> {/* Right arrow */}
           </button>
         </div>
 
