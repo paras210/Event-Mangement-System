@@ -1,3 +1,6 @@
+
+
+
 /* General Colors */
 :root {
   --primary-color: #4caf50; /* Vibrant green */
@@ -8,7 +11,8 @@
 
 /* Main Container */
 .intro-container {
-  height: 100vh;
+   flex-grow: 1; /*Fills the rest of the screen */
+  height: auto; 
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   padding: 20px;
   display: flex;
@@ -132,6 +136,7 @@
 }
 
 /* Navbar Background Gradient */
+
 .bg-gradient {
   background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
   border-bottom: 2px solid var(--primary-color);
