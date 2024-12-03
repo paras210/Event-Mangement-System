@@ -34,12 +34,13 @@ const Para = () => {
             inView ? "animate-from-bottom" : "invisible"
           }`}
         >
-          <h2
+          <h2 id="about"
             className="about-heading"
             style={{
               fontWeight: "bold",
               fontSize: "2.5rem",
               color: "#343a40",
+              padding:"100px",
             }}
           >
             About EventSync
