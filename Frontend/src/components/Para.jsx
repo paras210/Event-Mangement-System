@@ -17,10 +17,9 @@ const Para = () => {
   }, []);
 
   return (
-    <div className="section px-0" style={{
+    <div className="section px-0 py-5  " style={{
       overflow: "hidden",
       backgroundColor: "#f8f9fa",
-      minHeight: "100vh",
     }}>
     <div
       ref={sectionRef}
