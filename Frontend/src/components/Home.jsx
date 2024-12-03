@@ -27,8 +27,8 @@ export default function Home() {
         <Navbar onLoginClick={handleLoginOpen} />
         <Intro onLoginClick={handleLoginOpen} />
         <Para />
-        <Features />
         <Gallery />
+        <Features />
         <Services />
         <Footer />
       </div>

@@ -17,67 +17,56 @@ const Para = () => {
   }, []);
 
   return (
-    <div className="section px-0" style={{
-      overflow: "hidden",
-      backgroundColor: "#f8f9fa",
-      minHeight: "100vh",
-    }}>
-    <div
-      ref={sectionRef}
-      className="container-lg about-section py-5 px-3"
-      
-    >
-      <div id="about" className="row align-items-center">
-        {/* Left Section */}
-        <div 
-          className={`col-12 col-md-6 mb-4 mb-md-0 ${
-            inView ? "animate-from-bottom" : "invisible"
-          }` }
-        >
-          <h2 
-            className="about-heading"
-            style={{
-             
-              fontWeight: "bold",
-              fontSize: "2.5rem",
-              color: "#343a40",
-              
-            }}
+    <div className="section px-0 py-5" style={{ overflow: "hidden", backgroundColor: "#f8f9fa" }}>
+      <div ref={sectionRef} className="container-lg about-section py-5 px-3">
+        <div id="about" className="row align-items-center">
+          {/* Left Section */}
+          <div
+            className={`col-12 col-md-6 mb-4 mb-md-0 ${inView ? "animate-from-bottom" : "invisible"}`}
           >
-            About EventSync
-          </h2>
-          <p
-            className="about-text mt-3"
-            style={{
-              fontSize: "1.2rem",
-              lineHeight: "1.8",
-              color: "#6c757d",
-            }}
-          >
-            EventSync is your ultimate partner in organizing, managing, and
-            synchronizing events effortlessly. From small gatherings to grand
-            celebrations, we ensure everything is seamless and unforgettable.
-          </p>
-        </div>
+            <h2
+              className="about-heading"
+              style={{
+                fontWeight: "bold",
+                fontSize: "2.5rem",
+                color: "#343a40",
+              }}
+            >
+              About EventSync
+            </h2>
+            <p
+              className="about-text mt-3"
+              style={{
+                fontSize: "1.2rem",
+                lineHeight: "1.8",
+                color: "#6c757d",
+              }}
+            >
+              EventSync is your ultimate partner in organizing, managing, and synchronizing events
+              effortlessly. From small gatherings to grand celebrations, we ensure everything is
+              seamless and unforgettable. We provide a platform where users can manage events of any
+              size, ensuring a smooth experience from start to finish.
+            </p>
+            
+          </div>
 
           {/* Right Section */}
           <div
-            className={`col-12 col-md-6 stats-container ${
-              inView ? "animate-from-bottom delay-2" : "invisible"
-            }`}
+            className={`col-12 col-md-6 stats-container ${inView ? "animate-from-bottom delay-2" : "invisible"}`}
           >
             <div className="row text-center">
               {/* Stats Boxes */}
               {[
-                { value: "500+", label: "Events Hosted", color: "#007bff" },
-                { value: "4.8/5", label: "User Ratings", color: "#28a745" },
-                { value: "100k+", label: "Happy Users", color: "#ffc107" },
+                { value: "1000+", label: "Events Hosted", color: "#007bff" },
+                { value: "4.9/5", label: "User Ratings", color: "#28a745" },
+                { value: "200k+", label: "Happy Users", color: "#ffc107" },
+                { value: "500+", label: "Service Providers", color: "#6f42c1" },
+                { value: "98%", label: "Customer Satisfaction", color: "#e83e8c" },
+                { value: "24/7", label: "Customer Support", color: "#17a2b8" },
               ].map((stat, index) => (
                 <div
                   key={index}
-                  className={`col-6 col-md-4 mb-3 ${
-                    inView ? `animate-from-bottom delay-${index + 3}` : "invisible"
-                  }`}
+                  className={`col-6 col-md-4 mb-3 ${inView ? `animate-from-bottom delay-${index + 3}` : "invisible"}`}
                 >
                   <div
                     className="stat-box p-4 rounded"
