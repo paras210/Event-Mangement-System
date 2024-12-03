@@ -12,7 +12,7 @@ const Footer = () => {
         overflowX: "hidden", // Prevent horizontal scroll
       }}
     >
-      <div className="container">
+      <div className="container" id="contact">
         {/* Footer Top Section */}
         <div className="row">
           <div className="col-md-4">
