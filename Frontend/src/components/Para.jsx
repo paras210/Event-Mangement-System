@@ -17,46 +17,46 @@ const Para = () => {
   }, []);
 
   return (
+    <div className="section px-0" style={{
+      overflow: "hidden",
+      backgroundColor: "#f8f9fa",
+      minHeight: "100vh",
+    }}>
     <div
-      className="section px-0"
-      style={{
-        overflow: "hidden",
-        backgroundColor: "#f8f9fa",
-        minHeight: "100vh",
-      }}
+      ref={sectionRef}
+      className="container-lg about-section py-5 px-3"
+      
     >
-      <div ref={sectionRef} className="container-lg about-section py-5 px-3">
-        <div className="row align-items-center">
-          {/* Left Section */}
-          <div
-            className={`col-12 col-md-6 mb-4 mb-md-0 ${
-              inView ? "animate-from-bottom delay-1" : "invisible"
-            }`}
+      <div className="row align-items-center">
+        {/* Left Section */}
+        <div
+          className={`col-12 col-md-6 mb-4 mb-md-0 ${
+            inView ? "animate-from-bottom" : "invisible"
+          }`}
+        >
+          <h2
+            className="about-heading"
+            style={{
+              fontWeight: "bold",
+              fontSize: "2.5rem",
+              color: "#343a40",
+            }}
           >
-            <h2
-              id="about"
-              className="about-heading"
-              style={{
-                fontWeight: "bold",
-                fontSize: "2.5rem",
-                color: "#343a40",
-              }}
-            >
-              About EventSync
-            </h2>
-            <p
-              className="about-text mt-3"
-              style={{
-                fontSize: "1.2rem",
-                lineHeight: "1.8",
-                color: "#6c757d",
-              }}
-            >
-              EventSync is your ultimate partner in organizing, managing, and
-              synchronizing events effortlessly. From small gatherings to grand
-              celebrations, we ensure everything is seamless and unforgettable.
-            </p>
-          </div>
+            About EventSync
+          </h2>
+          <p
+            className="about-text mt-3"
+            style={{
+              fontSize: "1.2rem",
+              lineHeight: "1.8",
+              color: "#6c757d",
+            }}
+          >
+            EventSync is your ultimate partner in organizing, managing, and
+            synchronizing events effortlessly. From small gatherings to grand
+            celebrations, we ensure everything is seamless and unforgettable.
+          </p>
+        </div>
 
           {/* Right Section */}
           <div
