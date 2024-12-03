@@ -191,7 +191,9 @@
 .nav-item {
   margin: 0 5px;
 }
-
+.navbar{
+  height: 15vh !important;
+}
 .navbar-brand,
 .navbar-nav .nav-item {
   text-align: center;
