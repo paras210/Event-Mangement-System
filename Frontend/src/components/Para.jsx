@@ -27,20 +27,21 @@ const Para = () => {
       className="container-lg about-section py-5 px-3"
       
     >
-      <div className="row align-items-center">
+      <div id="about" className="row align-items-center">
         {/* Left Section */}
-        <div
+        <div 
           className={`col-12 col-md-6 mb-4 mb-md-0 ${
             inView ? "animate-from-bottom" : "invisible"
-          }`}
+          }` }
         >
-          <h2 id="about"
+          <h2 
             className="about-heading"
             style={{
+             
               fontWeight: "bold",
               fontSize: "2.5rem",
               color: "#343a40",
-              padding:"100px",
+              
             }}
           >
             About EventSync

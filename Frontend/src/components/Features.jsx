@@ -59,6 +59,15 @@ const Features = () => {
       }}
     >
       <div className="container">
+        {/* Section Heading */}
+        <h2
+          className={`text-center fw-bold mb-5 section-heading ${
+            inView ? "animate-heading" : "invisible"
+          }`}
+          style={{ color: "black", fontSize: "2.5rem" }}
+        >
+          Why Choose Us
+        </h2>
         <div className="row">
           {features.map((feature, index) => (
             <div
@@ -73,7 +82,7 @@ const Features = () => {
                   borderRadius: "15px",
                   boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
                   transition: "all 0.5s ease",
-                  background: "#ffffff", // Default background color
+                  background: "#ffffff",
                 }}
               >
                 {/* Circular Background Icon */}
@@ -83,17 +92,17 @@ const Features = () => {
                     width: "60px",
                     height: "60px",
                     borderRadius: "50%",
-                    backgroundColor: "#f0f0f0", // Light grey background for icon
+                    backgroundColor: "#f0f0f0",
                     flexShrink: 0,
-                    transition: "background-color 0.3s ease", // Smooth transition for background color
+                    transition: "background-color 0.3s ease",
                   }}
                 >
                   <i
                     className={`fa ${feature.icon} icon`}
                     style={{
                       fontSize: "1.8rem",
-                      color: "#ed5b91", // Default icon color
-                      transition: "color 0.3s ease", // Smooth transition for icon color
+                      color: "#ed5b91",
+                      transition: "color 0.3s ease",
                     }}
                   ></i>
                 </div>
@@ -119,13 +128,21 @@ const Features = () => {
             transition: all 1.5s ease-out;
           }
 
+          .section-heading {
+            transition: all 1.5s ease-out;
+          }
+
           ${Array.from({ length: 6 }, (_, index) => {
             return `
               .animate-feature-${index} {
-                animation: fade-in 1.2s ease-out ${index * 0.4}s forwards;
+                animation: fade-in 1s ease-out ${index * 0.4}s forwards;
               }
             `;
           }).join("")}
+
+          .animate-heading {
+            animation: fade-in 1.2s ease-out 0s forwards;
+          }
 
           @keyframes fade-in {
             to {
@@ -139,16 +156,16 @@ const Features = () => {
           }
 
           .feature-card:hover {
-            background: #ed5b91; /* Change the background color on hover */
-            color: #ffffff; /* Make the text white on hover */
+            background: linear-gradient(to right, #ed5b91, #f79dba); /* Gradient on hover */
+            color: #ffffff; /* Make text white on hover */
           }
 
           .feature-card:hover .icon-wrapper {
-            background-color: #d66b94; /* Darker grey background for the icon on hover */
+            background-color: #ed5b91;
           }
 
           .feature-card:hover .icon {
-            color: #ffffff; /* Change icon color to white on hover */
+            color: #ffffff;
           }
         `}
       </style>
