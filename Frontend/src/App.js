@@ -1,7 +1,8 @@
 import './App.css';
+import EventList from './components/EventList';
 import Home from './components/Home';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import EventList from './EventList';
+
 
 function App() {
 

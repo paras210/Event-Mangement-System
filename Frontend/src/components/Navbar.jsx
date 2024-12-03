@@ -5,7 +5,7 @@ const Navbar = ({ onLoginClick , onSignClick}) => {
     <nav
       className="navbar navbar-expand-lg navbar-dark"
       style={{
-        background: "linear-gradient(to right, rgb(24 14 8), rgb(138, 90, 68))",
+        background: "linear-gradient(to right, rgb(24, 14, 8), rgb(138, 90, 68))",
         opacity: 0.97,
         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.15)",
       }}
