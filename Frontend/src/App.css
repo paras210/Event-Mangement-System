@@ -12,7 +12,7 @@
 /* Main Container */
 .intro-container {
    flex-grow: 1; /*Fills the rest of the screen */
-  height: auto; 
+  height: 85vh; 
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   padding: 20px;
   display: flex;
