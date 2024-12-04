@@ -52,7 +52,7 @@ const Features = () => {
   return (
     <div
       ref={sectionRef}
-      className="features-section pt-4" id="services"
+      className="features-section pt-4"
       style={{
         background: "linear-gradient(to right, #f5fbf9 0%, #f5fbf9 100%)",
         padding: "3rem 0",

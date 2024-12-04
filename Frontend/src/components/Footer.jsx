@@ -21,7 +21,7 @@ const Footer = () => {
       ref={footerRef}
       className="footer-section pb-0 pt-5"
       style={{
-        background: "linear-gradient(to right, rgb(4 2 1), rgb(37 24 17))", // Updated to match theme colors
+        backgroundColor:"#011126",
         color: "#fff",
         padding: "60px 0",
         fontFamily: "'Poppins', sans-serif",
@@ -81,8 +81,9 @@ const Footer = () => {
         </div>
       </div>
       {/* Footer Bottom Section */}
-      <div className="row justify-content-center mt-5">
-        <div className="col-md-12 text-center py-3 color px-0">
+        
+        <div className="row justify-content-center mt-5" style={{backgroundColor:"#011126",}}>
+        <div className="col-md-12 text-center py-3 px-0">
           <p className={`footer-description ${inView ? "animate-footer-description" : "invisible"}`}>
             &copy; 2024 EventSync. All rights reserved.
           </p>

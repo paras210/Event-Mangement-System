@@ -17,7 +17,7 @@ const Para = () => {
   }, []);
 
   return (
-    <div className="section px-0 py-5" style={{ overflow: "hidden", backgroundColor: "#f8f9fa" }}>
+    <div className="section px-0 py-5" style={{ overflow: "hidden",backgroundColor: "#f5fbfa",  }}>
       <div ref={sectionRef} className="container-lg about-section py-5 px-3">
         <div id="about" className="row align-items-center">
           {/* Left Section */}

@@ -9,7 +9,7 @@ const Services = () => {
       ([entry]) => {
         if (entry.isIntersecting) setInView(true);
       },
-      { threshold: 0.3 } // Trigger when 30% of the section is in view
+      { threshold: 0.3 }
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -17,166 +17,119 @@ const Services = () => {
   }, []);
 
   const services = [
-    "Lighting",
-    "DJ Services",
-    "Catering",
-    "Photography",
-    "Decorations",
-    "Venue Management",
-    "Security Services",
-    "Transportation",
-    "Sound Systems",
-    "Live Performances",
-    "Florists",
-    "Event Planning",
+    { name: "Lighting", icon: "🔦" },
+    { name: "DJ Services", icon: "🎵" },
+    { name: "Catering", icon: "🍴" },
+    { name: "Photography", icon: "📸" },
+    { name: "Decorations", icon: "🎨" },
+    { name: "Venue Management", icon: "🏛️" },
+    { name: "Security Services", icon: "🛡️" },
+    { name: "Transportation", icon: "🚗" },
+    { name: "Sound Systems", icon: "🔊" },
+    { name: "Live Performances", icon: "🎤" },
+    { name: "Florists", icon: "🌸" },
+    { name: "Event Planning", icon: "📝" },
   ];
 
   return (
+
+    <div id="services" style={{
+      backgroundColor: "#f5fbfa", // Light pastel background to match theme
+    }}>
     <div
       ref={sectionRef}
-      className="section pb-5 position-relative"
-      style={{
-        color: "#fff",
-        overflow: "hidden",
-      }}
+      className="container py-5 "
+     
     >
-      {/* Video Background */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="position-absolute w-100 h-100"
+      <h2
+        className={`fw-bold mb-4 text-center ${inView ? "animate-heading" : "invisible"}`}
         style={{
-          objectFit: "cover",
-          zIndex: "-2",
+          fontSize: "2.5rem",
+          color: "#2d2d2d", // Dark gray for headings
+          fontFamily: "'Poppins', sans-serif",
         }}
       >
-        <source
-          src="assets/Video/animation.mp4"
-          type="video/mp4"
-        />
-        Your browser does not support the video tag.
-      </video>
-
-      {/* Brown Overlay */}
-      <div
-        className="position-absolute w-100 h-100"
-        style={{
-          backgroundColor: "rgba(75, 46, 30, 0.6)", // Brown color with opacity
-          zIndex: "-1",
-        }}
-      ></div>
-
-      {/* Services Content */}
-      <div className="container text-center py-5">
-        <h2
-          className={`fw-bold mb-4 section-heading ${inView ? "animate-heading" : "invisible"}`}
-          style={{
-            fontSize: "3rem", // Enlarged text
-            color: "white",
-          }}
-        >
-          <span style={{ color: "#d29b6e" }}>Get Work Done</span> in Different Categories
-        </h2>
-        <p
-          className={`mb-5 ${inView ? "animate-description" : "invisible"}`}
-          style={{
-            fontSize: "1.2rem",
-            fontFamily: "'Roboto', sans-serif",
-            lineHeight: "1.8",
-          }}
-        >
-          From grand celebrations to intimate gatherings, EventSync ensures all
-          your event needs are met with precision and creativity.
-        </p>
-        <div className="row gy-4">
-          {services.map((service, index) => (
+        Our <span style={{ color: "#f473c4" }}>Services</span>
+      </h2>
+      <div className="row g-4">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            className={`col-12 col-sm-6 col-md-4 col-lg-3 ${inView ? `animate-service-${index}` : "invisible"}`}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
             <div
-              key={index}
-              className={`col-6 col-md-4 col-lg-3 d-flex justify-content-center service-card-container ${inView ? `animate-service-${index}` : "invisible"}`}
+              className="service-card p-4"
+              style={{
+                background: "#ffffff",
+                borderRadius: "12px",
+                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+                textAlign: "center",
+                width: "100%",
+                maxWidth: "280px",
+              }}
             >
               <div
-                className="p-4"
+                className="icon mb-3"
                 style={{
-                  background: "rgba(255, 255, 255, 0.1)",
-                  borderRadius: "15px",
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
-                  textAlign: "center",
-                  width: "100%",
+                  fontSize: "2.5rem",
+                  color: "#f473c4", // Soft pink for icons
                 }}
               >
-                <h5
-                  style={{
-                    fontFamily: "'Poppins', sans-serif",
-                    fontSize: "1.2rem",
-                    color: "#fff",
-                  }}
-                >
-                  {service}
-                </h5>
+                {service.icon}
               </div>
+              <h5
+                style={{
+                  fontSize: "1.2rem",
+                  fontFamily: "'Poppins', sans-serif",
+                  fontWeight: "600",
+                  color: "#2d2d2d", // Dark gray for text
+                }}
+              >
+                {service.name}
+              </h5>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
 
       <style>
         {`
           .invisible {
             opacity: 0;
-            transform: translateY(70px);
-          }
-
-          /* Smooth Transition for Hover Effects */
-          .service-card-container {
-            transition: transform 1s ease-out;  /* Slow down hover effect */
-          }
-
-          .section-heading, .animate-heading {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease-out; /* Slow down entrance */
+            transform: translateY(100px); /* Start off the page from below */
           }
 
           .animate-heading {
             opacity: 1;
             transform: translateY(0);
+            transition: all 0.8s ease-out;
           }
 
-          .animate-description {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease-out 0.3s; /* Slow down description entrance */
-          }
-
-          .animate-description {
-            opacity: 1;
-            transform: translateY(0);
-          }
-
-          /* Staggered animation for each service */
-          ${Array.from({ length: 12 }, (_, index) => {
+          ${Array.from({ length: services.length }, (_, index) => {
             return `
               .animate-service-${index} {
-                animation: fade-in 1.8s ease-out ${index * 0.5}s forwards;
+                animation: slide-in 0.8s ease-out ${index * 0.2}s forwards;
               }
             `;
           }).join("")}
 
-          @keyframes fade-in {
+          @keyframes slide-in {
+            from {
+              opacity: 0;
+              transform: translateY(100px); /* Start below */
+            }
             to {
               opacity: 1;
-              transform: translateY(0);
+              transform: translateY(0); /* End at normal position */
             }
-          }
-
-          /* Hover effect for card */
-          .service-card-container:hover {
-            transform: translateY(-10px);
           }
         `}
       </style>
+    </div>
     </div>
   );
 };
