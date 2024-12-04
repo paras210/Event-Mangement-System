@@ -9,7 +9,7 @@ const Features = () => {
       ([entry]) => {
         if (entry.isIntersecting) setInView(true);
       },
-      { threshold: 0.1 }
+      { threshold: 0.3 } // Increased threshold to trigger earlier
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -58,12 +58,10 @@ const Features = () => {
         padding: "3rem 0",
       }}
     >
-      <div className="container">
+      <div className="container " >
         {/* Section Heading */}
         <h2
-          className={`text-center fw-bold mb-5 section-heading ${
-            inView ? "animate-heading" : "invisible"
-          }`}
+          className={`text-center fw-bold mb-5 section-heading ${inView ? "animate-heading" : "invisible"}`}
           style={{ color: "black", fontSize: "2.5rem" }}
         >
           Why Choose Us
@@ -72,9 +70,7 @@ const Features = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`col-md-6 mb-4 feature-card-container ${
-                inView ? `animate-feature-${index}` : "invisible"
-              }`}
+              className={`col-md-6 mb-4 feature-card-container ${inView ? `animate-feature-${index}` : "invisible"}`}
             >
               <div
                 className="feature-card p-4 h-100 d-flex align-items-center"
@@ -125,23 +121,23 @@ const Features = () => {
           }
 
           .feature-card-container {
-            transition: all 1.5s ease-out;
+            transition: all 1.8s ease-out; /* Increased transition duration */
           }
 
           .section-heading {
-            transition: all 1.5s ease-out;
+            transition: all 1.8s ease-out; /* Increased transition duration */
           }
 
           ${Array.from({ length: 6 }, (_, index) => {
             return `
               .animate-feature-${index} {
-                animation: fade-in 1s ease-out ${index * 0.4}s forwards;
+                animation: fade-in 1.5s ease-out ${index * 0.7}s forwards; /* Increased delay for earlier appearance */
               }
             `;
           }).join("")}
 
           .animate-heading {
-            animation: fade-in 1.2s ease-out 0s forwards;
+            animation: fade-in 1.8s ease-out 0s forwards; /* Increased duration for heading */
           }
 
           @keyframes fade-in {

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import MainPage from "./MainPage";
+
 
 const LoginModal = ({ onClose }) => {
   const [isLogin, setIsLogin] = useState(true); 
+
 
   return (
     <div className="modal-backdrop d-flex justify-content-center align-items-center">
@@ -9,7 +12,7 @@ const LoginModal = ({ onClose }) => {
         <div className="toggle-buttons d-flex justify-content-around mb-4">
           <button
             className={`toggle-btn ${isLogin ? "active" : ""}`}
-            onClick={() => setIsLogin(true)}
+            onClick={() => setIsLogin(true) }
           >
             Login
           </button>

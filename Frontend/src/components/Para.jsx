@@ -17,7 +17,7 @@ const Para = () => {
   }, []);
 
   return (
-    <div className="section px-0 py-5" style={{ overflow: "hidden", backgroundColor: "#f8f9fa" }}>
+    <div className="section px-0 py-5" style={{ overflow: "hidden",backgroundColor: "#f5fbfa",  }}>
       <div ref={sectionRef} className="container-lg about-section py-5 px-3">
         <div id="about" className="row align-items-center">
           {/* Left Section */}
@@ -47,7 +47,6 @@ const Para = () => {
               seamless and unforgettable. We provide a platform where users can manage events of any
               size, ensuring a smooth experience from start to finish.
             </p>
-            
           </div>
 
           {/* Right Section */}
@@ -56,7 +55,7 @@ const Para = () => {
           >
             <div className="row text-center">
               {/* Stats Boxes */}
-              {[
+              {[ 
                 { value: "1000+", label: "Events Hosted", color: "#007bff" },
                 { value: "4.9/5", label: "User Ratings", color: "#28a745" },
                 { value: "200k+", label: "Happy Users", color: "#ffc107" },
@@ -104,7 +103,7 @@ const Para = () => {
             .animate-from-bottom {
               transform: translateY(50px);
               opacity: 0;
-              animation: slide-up 0.8s ease-out forwards;
+              animation: slide-up 1s ease-out forwards; /* Increased duration for smoother effect */
             }
 
             .invisible {
@@ -112,19 +111,19 @@ const Para = () => {
             }
 
             .delay-1 {
-              animation-delay: 0.2s;
+              animation-delay: 0.3s; /* Adjusted delay */
             }
             .delay-2 {
-              animation-delay: 0.4s;
+              animation-delay: 0.6s; /* Adjusted delay */
             }
             .delay-3 {
-              animation-delay: 0.6s;
+              animation-delay: 0.9s; /* Adjusted delay */
             }
             .delay-4 {
-              animation-delay: 0.8s;
+              animation-delay: 1.2s; /* Adjusted delay */
             }
             .delay-5 {
-              animation-delay: 1s;
+              animation-delay: 1.5s; /* Adjusted delay */
             }
 
             @keyframes slide-up {

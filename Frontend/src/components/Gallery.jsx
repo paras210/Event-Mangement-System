@@ -24,7 +24,7 @@ const Gallery = () => {
         ([entry]) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("animate-from-bottom");
-            entry.target.style.animationDelay = `${index * 0.2}s`; // Add delay for staggered effect
+            entry.target.style.animationDelay = `${index * 0.3}s`; // Add delay for staggered effect
           }
         },
         { threshold: 0.1 }
@@ -104,9 +104,9 @@ const Gallery = () => {
           }
 
           .animate-from-bottom {
-            transform: translateY(50px);
+            transform: translateY(60px);
             opacity: 0;
-            animation: slide-up 1.2s ease-out forwards;
+            animation: slide-up 1.8s ease-out forwards; /* Increased animation duration */
           }
 
           @keyframes slide-up {
