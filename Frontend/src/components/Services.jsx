@@ -32,75 +32,77 @@ const Services = () => {
   ];
 
   return (
-
-    <div id="services" style={{
-      backgroundColor: "#f5fbfa", // Light pastel background to match theme
-    }}>
     <div
-      ref={sectionRef}
-      className="container py-5 "
-     
+      id="services"
+      style={{
+        backgroundColor: "#f5fbfa", // Light pastel background to match theme
+      }}
     >
-      <h2
-        className={`fw-bold mb-4 text-center ${inView ? "animate-heading" : "invisible"}`}
-        style={{
-          fontSize: "2.5rem",
-          color: "#2d2d2d", // Dark gray for headings
-          fontFamily: "'Poppins', sans-serif",
-        }}
-      >
-        Our <span style={{ color: "#f473c4" }}>Services</span>
-      </h2>
-      <div className="row g-4">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className={`col-12 col-sm-6 col-md-4 col-lg-3 ${inView ? `animate-service-${index}` : "invisible"}`}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
+      <div ref={sectionRef} className="container py-5">
+        <h2
+          className={`fw-bold mb-4 text-center ${
+            inView ? "animate-heading" : "invisible"
+          }`}
+          style={{
+            fontSize: "2.5rem",
+            color: "#2d2d2d", // Dark gray for headings
+            fontFamily: "'Poppins', sans-serif",
+          }}
+        >
+          Our <span style={{ color: "#f473c4" }}>Services</span>
+        </h2>
+        <div className="row g-4">
+          {services.map((service, index) => (
             <div
-              className="service-card p-4"
+              key={index}
+              className={`col-12 col-sm-6 col-md-4 col-lg-3 ${
+                inView ? `animate-service-${index}` : "invisible"
+              }`}
               style={{
-                background: "#ffffff",
-                borderRadius: "12px",
-                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-                textAlign: "center",
-                width: "100%",
-                maxWidth: "280px",
+                display: "flex",
+                justifyContent: "center",
               }}
             >
               <div
-                className="icon mb-3"
+                className="service-card p-4"
                 style={{
-                  fontSize: "2.5rem",
-                  color: "#f473c4", // Soft pink for icons
+                  background: "#ffffff",
+                  borderRadius: "12px",
+                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+                  textAlign: "center",
+                  width: "100%",
+                  maxWidth: "280px",
                 }}
               >
-                {service.icon}
+                <div
+                  className="icon mb-3"
+                  style={{
+                    fontSize: "2.5rem",
+                    color: "#f473c4", // Soft pink for icons
+                  }}
+                >
+                  {service.icon}
+                </div>
+                <h5
+                  style={{
+                    fontSize: "1.2rem",
+                    fontFamily: "'Poppins', sans-serif",
+                    fontWeight: "600",
+                    color: "#2d2d2d", // Dark gray for text
+                  }}
+                >
+                  {service.name}
+                </h5>
               </div>
-              <h5
-                style={{
-                  fontSize: "1.2rem",
-                  fontFamily: "'Poppins', sans-serif",
-                  fontWeight: "600",
-                  color: "#2d2d2d", // Dark gray for text
-                }}
-              >
-                {service.name}
-              </h5>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      <style>
-        {`
+        <style>
+          {`
           .invisible {
             opacity: 0;
-            transform: translateY(100px); /* Start off the page from below */
+            transform: translateY(100px); /* Start off the page */
           }
 
           .animate-heading {
@@ -109,13 +111,15 @@ const Services = () => {
             transition: all 0.8s ease-out;
           }
 
-          ${Array.from({ length: services.length }, (_, index) => {
-            return `
-              .animate-service-${index} {
-                animation: slide-in 0.8s ease-out ${index * 0.2}s forwards;
-              }
-            `;
-          }).join("")}
+          ${services
+            .map(
+              (_, index) => `
+            .animate-service-${index} {
+              animation: slide-in 0.8s ease-out ${index * 0.2}s forwards;
+            }
+          `
+            )
+            .join("")}
 
           @keyframes slide-in {
             from {
@@ -128,8 +132,8 @@ const Services = () => {
             }
           }
         `}
-      </style>
-    </div>
+        </style>
+      </div>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import Para from "./Para";
 import Services from "./Services";
 import Footer from "./Footer";
 import LoginModal from "./LoginModal";
+import Reviews from "./Reviews";
 
 
 export default function Home() {
@@ -30,6 +31,7 @@ export default function Home() {
         <Gallery />
         <Features />
         <Services />
+        <Reviews/>
         <Footer />
       </div>
 

@@ -1,13 +1,23 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const Navbar = ({onLoginClick}) => {
+  const navigate = useNavigate();
 
+  const Move = ()=>{
+    navigate("/main");
+  }
   const scrollToAbout = () => {
     document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToServices = () => {
     document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToReviews = () => {
+    document.getElementById('reviews').scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToFooter = () => {
@@ -43,13 +53,13 @@ const Navbar = ({onLoginClick}) => {
             </li>
             
             <li className="nav-item">
-              <button className="nav-link text-uppercase px-3 hover-effect" href="#reviews">Reviews</button>
+              <button onClick={scrollToReviews} className="nav-link text-uppercase px-3 hover-effect" href="#reviews">Reviews</button>
             </li>
             <li className="nav-item">
               <button onClick={scrollToFooter} className="nav-link text-uppercase px-3 hover-effect" href="#contact">Contact Us</button>
             </li>
             <li className="nav-item">
-              <button className="btn custom-btn ms-3" onClick={onLoginClick}>Login</button>
+              <button className="btn custom-btn ms-3" onClick={Move}>Login</button>
             </li>
           </ul>
         </div>
