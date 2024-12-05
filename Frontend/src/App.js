@@ -1,25 +1,25 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import LoginModal from './components/LoginModal';  // Adjust path if necessary
-import MainPage from './components/MainPage';      // Adjust path if necessary
+import './App.css';
+import EventList from './components/EventList';
+import Home from './components/Home';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import MainPage from './components/MainPage';
+import MyEvent from './components/MyEvent';
+import ProfilePage from './components/ProfilePage';
 
-const App = () => {
+
+function App() {
+
+  
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<LoginModal />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/eventlist" element={<EventList />} />
         <Route path="/mainpage" element={<MainPage />} />
-        <Route
-          path="/"
-          element={
-            <div>
-              <h1>Welcome to the Event Management</h1>
-              <Link to="/login">
-                <button>Login</button>  {/* This button will redirect to the Login page */}
-              </Link>
-            </div>
-          }
-        />
+        <Route path="/myevents" element={<MyEvent />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        
+        
       </Routes>
     </Router>
   );
