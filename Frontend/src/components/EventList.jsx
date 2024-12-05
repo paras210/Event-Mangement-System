@@ -1,178 +1,184 @@
-import React, { useState } from 'react';
-import Navbar from './Navbar';
-import Footer from './Footer';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import Footer from "./Footer";
 
 
 const EventList = () => {
-    const [eventData, setEventData] = useState({
-        title: '',
-        description: '',
-        date: '',
-        time: '',
-        venue: '',
-        budget: '',
+  const [events, setEvents] = useState([]);
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const [formData, setFormData] = useState({
+    title: "",
+    budget: "",
+    description: "",
+    time: "",
+    date: "",
+    guests: "",
+  });
+
+  // Navbar Smooth Scroll Behavior
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       const currentScrollY = window.scrollY;
+
+//       if (Math.abs(lastScrollY - currentScrollY) > 10) {
+//         setIsNavbarVisible(currentScrollY < lastScrollY);
+//         setLastScrollY(currentScrollY);
+//       }
+//     };
+
+//     window.addEventListener("scroll", handleScroll);
+//     return () => window.removeEventListener("scroll", handleScroll);
+//   }, [lastScrollY]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setEvents([...events, formData]);
+    setFormData({
+      title: "",
+      budget: "",
+      description: "",
+      time: "",
+      date: "",
+      guests: "",
     });
+  };
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setEventData({
-            ...eventData,
-            [name]: value,
-        });
-    };
+  return (
+    <>
+      {/* Navbar */}
+      <div className={`main-sidebar ${isNavbarVisible ? "" : "hidden"}`} style={{
+        height:"100vh",
+      }}>
+        <div className="main-logo">
+          <i className="fas fa-calendar-alt"></i>
+          <span>Eventify</span>
+        </div>
+        <nav className="main-nav-items">
+          <Link to="/" className="main-nav-item text-decoration-none">
+            <i className="fas fa-home"></i>
+            <span>Home</span>
+          </Link>
+          <Link to="/eventlist" className="main-nav-item text-decoration-none">
+            <i className="fas fa-calendar-plus"></i>
+            <span>List an Event</span>
+          </Link>
+          <Link to="/myevents" className="main-nav-item text-decoration-none">
+            <i className="fas fa-calendar-check"></i>
+            <span>My Events</span>
+          </Link>
+          <Link to="/settings" className="main-nav-item text-decoration-none">
+            <i className="fas fa-user-cog"></i>
+            <span>Settings</span>
+          </Link>
+        </nav>
+      </div>
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Event Data:', eventData);
-        // You can send the data to your server or API here
-    };
+      {/* Logout Button */}
+      <button className="logout-btn">Logout</button>
 
-    const navigate = useNavigate();
+      {/* Website Heading */}
+      <h1 className="website-title">Welcome to Eventify</h1>
 
-    const backhome = () => {
-        navigate("/");
-    };
+      {/* Main Content */}
+      <div className="event-list-container">
+        {/* <h2 className="section-title">Organize Your Event</h2> */}
+        <form className="event-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <input
+              type="text"
+              name="title"
+              placeholder=" "
+              value={formData.title}
+              onChange={handleChange}
+              required
+            />
+            <label>Event Title</label>
+          </div>
+          <div className="form-group">
+            <input
+              type="number"
+              name="budget"
+              placeholder=" "
+              value={formData.budget}
+              onChange={handleChange}
+              required
+            />
+            <label>Budget (in $)</label>
+          </div>
+          <div className="form-group">
+            <textarea
+              name="description"
+              placeholder=" "
+              value={formData.description}
+              onChange={handleChange}
+              required
+            ></textarea>
+            <label>Small Description</label>
+          </div>
+          <div className="form-group">
+            <input
+              type="time"
+              name="time"
+              value={formData.time}
+              onChange={handleChange}
+              required
+            />
+            <label>Event Time</label>
+          </div>
+          <div className="form-group">
+            <input
+              type="date"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+              required
+            />
+            <label>Event Date</label>
+          </div>
+          <div className="form-group">
+            <input
+              type="number"
+              name="guests"
+              placeholder=" "
+              value={formData.guests}
+              onChange={handleChange}
+              required
+            />
+            <label>Number of Guests</label>
+          </div>
+          <button type="submit" className="submit-button">
+            Add Event
+          </button>
+        </form>
 
-    return (
-        <>
-            <div
-                style={{
-                    width: "100%",
-                    height: "100vh",
-                    background: "linear-gradient(to right, rgb(37 22 14), #8a5a44)",
-                    paddingTop: "15px",
-
-                }}>
-
-                <div
-                    className="navbar fs-1 d-flex justify-content-center fw-bold shadow-lg"
-                    style={{
-                        padding: "30px",
-                        // marginTop:"5px",
-                        borderRadius: "20px",
-                        background: "linear-gradient(135deg, #4e342e, #6d4c41)",
-                        boxShadow: "0 8px 20px rgba(0, 0, 0, 0.4)",
-                        maxWidth: "90%",
-                        margin: "auto",
-                        fontFamily: "'Playfair Display', serif",
-                        textAlign: "center",
-                        letterSpacing: "1px",
-                        color: "#fff",
-                    }}
-                >
-                    EventSync
-                </div>
-
-                <div style={{
-                    background: "linear-gradient(to right, rgb(24 14 8), rgb(138, 90, 68))",
-                    opacity: 0.97,
-                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.15)",
-                    padding: "20px",
-                }}>
-                    <div>
-                        <i className="bi bi-arrow-left-short"></i>
-                        <button className='btn btn-secondary ' onClick={backhome}>
-                            Go Back
-                        </button>
-                    </div>
-                    <div className="event-form-container " >
-                        <h2 className="text-center mb-4">Host Your Event</h2>
-                        <form onSubmit={handleSubmit} className="event-form">
-                            <div className="form-group mb-3">
-                                <label htmlFor="title" className="form-label">Event Title</label>
-                                <input
-                                    type="text"
-                                    id="title"
-                                    name="title"
-                                    className="form-control"
-                                    value={eventData.title}
-                                    onChange={handleChange}
-                                    placeholder="Enter event title"
-                                />
-                            </div>
-
-                            <div className="form-group mb-3">
-                                <label htmlFor="description" className="form-label">Event Description</label>
-                                <textarea
-                                    id="description"
-                                    name="description"
-                                    className="form-control"
-                                    value={eventData.description}
-                                    onChange={handleChange}
-                                    placeholder="Provide details about the event"
-                                    rows="4"
-                                ></textarea>
-                            </div>
-
-                            <div className="form-row mb-3">
-                                <div className="col">
-                                    <label htmlFor="date" className="form-label">Event Date</label>
-                                    <input
-                                        type="date"
-                                        id="date"
-                                        name="date"
-                                        className="form-control"
-                                        value={eventData.date}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="time" className="form-label">Event Time</label>
-                                    <input
-                                        type="time"
-                                        id="time"
-                                        name="time"
-                                        className="form-control"
-                                        value={eventData.time}
-                                        onChange={handleChange}
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="form-group mb-3">
-                                <label htmlFor="venue" className="form-label">Event Venue</label>
-                                <input
-                                    type="text"
-                                    id="venue"
-                                    name="venue"
-                                    className="form-control"
-                                    value={eventData.venue}
-                                    onChange={handleChange}
-                                    placeholder="Enter event venue"
-                                />
-                            </div>
-
-                            <div className="form-group mb-3">
-                                <label htmlFor="budget" className="form-label">Event Budget</label>
-                                <div className="input-group">
-                                    <span className="input-group-text">₹</span>
-                                    <input
-                                        type="number"
-                                        id="budget"
-                                        name="budget"
-                                        className="form-control"
-                                        value={eventData.budget}
-                                        onChange={handleChange}
-                                        placeholder="Enter estimated budget"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="text-center">
-                                <button type="submit" className="btn btn-primary btn-lg">
-                                    Submit Event
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <Footer />
+        <div className="event-cards">
+          {events.map((event, index) => (
+            <div key={index} className="event-card">
+              <h3>{event.title}</h3>
+              <p>
+                <strong>Date:</strong> {event.date} | <strong>Time:</strong> {event.time}
+              </p>
+              <p>
+                <strong>Budget:</strong> ${event.budget}
+              </p>
+              <p>
+                <strong>Guests:</strong> {event.guests}
+              </p>
+              <p className="description">{event.description}</p>
             </div>
-
-        </>
-    );
-
+          ))}
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
 };
 
 export default EventList;
