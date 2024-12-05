@@ -1,149 +1,122 @@
-/* General Reset */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    box-sizing: border-box;
-  }
-  
-  /* Main Page Layout */
-  .main-page {
+/* General Page Styles */
+.main-page-container {
     display: flex;
     height: 100vh;
-    overflow: hidden;
+    background-color: #f5fbfa; /* Very slight background color */
   }
   
-  /* Sidebar */
-  .main-sidebar {
-    width: 250px;
-    background-color: #1e293b;
-    color: #ffffff;
+  /* Left Sidebar (Buttons) */
+  .side-buttons {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    justify-content: flex-start;
+    width: 200px;
+    padding: 20px;
   }
   
-  .main-logo {
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 30px;
-  }
-  
-  .main-logo i {
-    font-size: 28px;
-    color: #4f46e5;
-  }
-  
-  .main-logo span {
-    font-weight: bold;
-  }
-  
-  /* Navigation Items */
-  .main-nav-items {
-    width: 100%;
-  }
-  
-  .main-nav-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    width: 100%;
-    padding: 15px 20px;
-    font-size: 18px;
-    background-color: transparent;
-    border: none;
-    color: #ffffff;
+  .main-button {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: black;
     text-align: left;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .main-nav-item i {
-    font-size: 20px;
-    color: #94a3b8;
-    transition: color 0.3s ease;
-  }
-  
-  .main-nav-item:hover {
-    background-color: #4f46e5;
-    color: #ffffff;
-    border-radius: 8px;
-  }
-  
-  .main-nav-item:hover i {
-    color: #ffffff;
-  }
-  
-  .main-nav-item.main-logout {
-    margin-top: auto;
-    background-color: #dc2626;
-    color: #ffffff;
-  }
-  
-  .main-nav-item.main-logout:hover {
-    background-color: #b91c1c;
-  }
-  
-  /* Content Area */
-  .main-content {
-    flex: 1;
-    background-color: #f9fafb;
-    padding: 20px 40px;
-    overflow-y: auto;
-  }
-  
-  .main-content-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .main-button i {
+    margin-right: 10px;
+  }
+  
+  .main-button:hover,
+  .main-button.active {
+    background-color: #81c784; /* Hover/Active background color */
+    color: white; /* White text when active or hovered */
+  }
+  
+  .main-button.active {
+    border-color: #81c784; /* Active border color */
+  }
+  
+  /* Main Content */
+  .main-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  /* Live Events Section */
+  .live-events-section {
+    margin-top: 30px;
+  }
+  
+  .live-events-section h2 {
+    color: black; /* Black color for headings */
+    font-size: 24px;
     margin-bottom: 20px;
   }
   
-  .main-content-header h1 {
-    font-size: 24px;
-    color: #1e293b;
+  /* Event Cards */
+  .event-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
   }
   
-  .main-content-body {
-    background-color: #ffffff;
+  .event-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
-  .main-content-body h2 {
-    color: #4f46e5;
+  .event-card:hover {
+    transform: scale(1.05); /* Slight scale effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
   
-  .main-action-buttons {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
+  .event-card h3 {
+    font-size: 20px;
+    color: black; /* Black color for event titles */
+    margin-bottom: 10px;
   }
   
-  .main-action-btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #ffffff;
-    background-color: #4f46e5;
+  .event-card p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .event-card button {
+    background-color: #81c784; /* Button background */
+    color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 14px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
   }
   
-  .main-action-btn i {
-    font-size: 18px;
+  .event-card button:hover {
+    background-color: #66bb6a; /* Darker green on hover */
   }
   
-  .main-action-btn:hover {
-    background-color: #3b82f6;
+  /* Footer Styling (if needed) */
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
   }
   
