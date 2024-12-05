@@ -1,63 +1,39 @@
-import React from "react";
-import "./MainPage.css";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-const MainPage = ({ username = "User" }) => {
+const MainPage = () => {
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    const fetchMainPageData = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          setMessage('You must log in to view this page.');
+          return;
+        }
+
+        // Make a request to the protected route with the JWT token
+        const response = await axios.get('http://localhost:5000/api/mainpage', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        setMessage(response.data.message);  // Display success message from the backend
+      } catch (error) {
+        setMessage('Error: Unable to access the MainPage.');
+      }
+    };
+
+    fetchMainPageData();
+  }, []);
+
   return (
     <div className="main-page">
-      {/* Vertical Navbar */}
-      <div className="main-sidebar">
-        <div className="main-logo">
-          <i className="fas fa-calendar-alt"></i>
-          <span>Eventify</span>
-        </div>
-        <nav className="main-nav-items">
-          <button className="main-nav-item">
-            <i className="fas fa-home"></i>
-            Home
-          </button>
-          <button className="main-nav-item">
-            <i className="fas fa-calendar-plus"></i>
-            List an Event
-          </button>
-          <button className="main-nav-item">
-            <i className="fas fa-calendar-check"></i>
-            My Events
-          </button>
-          <button className="main-nav-item">
-            <i className="fas fa-user-cog"></i>
-            Settings
-          </button>
-          <button className="main-nav-item main-logout">
-            <i className="fas fa-sign-out-alt"></i>
-            Logout
-          </button>
-        </nav>
-      </div>
-
-      {/* Main Content Area */}
-      <div className="main-content">
-        <header className="main-content-header">
-          <h1>Welcome, {username}!</h1>
-        </header>
-        <div className="main-content-body">
-          <h2>Dashboard</h2>
-          <p>Here, you can manage your events seamlessly and effortlessly.</p>
-          <div className="main-action-buttons">
-            <button className="main-action-btn">
-              <i className="fas fa-calendar-plus"></i>
-              Create Event
-            </button>
-            <button className="main-action-btn">
-              <i className="fas fa-calendar-check"></i>
-              View My Events
-            </button>
-            <button className="main-action-btn">
-              <i className="fas fa-user-edit"></i>
-              Edit Profile
-            </button>
-          </div>
-        </div>
-      </div>
+      <h1>{message}</h1>
     </div>
   );
-}
+};
+
+export default MainPage;

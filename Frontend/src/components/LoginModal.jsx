@@ -1,10 +1,38 @@
 import React, { useState } from "react";
-import MainPage from "./MainPage";
-
+import axios from "axios";
 
 const LoginModal = ({ onClose }) => {
-  const [isLogin, setIsLogin] = useState(true); 
+  const [isLogin, setIsLogin] = useState(true);
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    phone: "",
+    password: "",
+  });
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Filter data based on the form type
+    const dataToSend = isLogin
+      ? { email: formData.email, password: formData.password }
+      : formData;
+
+    const endpoint = isLogin ? "/api/login" : "/api/signup";
+
+    try {
+      const response = await axios.post(`http://localhost:5000${endpoint}`, dataToSend);
+      alert(response.data.message);
+      if (isLogin) onClose(); // Close modal after successful login
+    } catch (error) {
+      alert(error.response?.data?.message || "An error occurred");
+    }
+  };
 
   return (
     <div className="modal-backdrop d-flex justify-content-center align-items-center">
@@ -12,7 +40,7 @@ const LoginModal = ({ onClose }) => {
         <div className="toggle-buttons d-flex justify-content-around mb-4">
           <button
             className={`toggle-btn ${isLogin ? "active" : ""}`}
-            onClick={() => setIsLogin(true) }
+            onClick={() => setIsLogin(true)}
           >
             Login
           </button>
@@ -24,85 +52,46 @@ const LoginModal = ({ onClose }) => {
           </button>
         </div>
         <h5 className="text-center">{isLogin ? "Login" : "Sign Up"}</h5>
-        <form>
-          <div className="mb-3">
-            <div className="form-floating">
-              <input
-                type="text"
-                className="form-control"
-                id="floatingUsername"
-                placeholder="Username"
-              />
-              <label htmlFor="floatingUsername">Username</label>
-            </div>
-          </div>
-          
+        <form onSubmit={handleSubmit}>
           {!isLogin && (
-            <div className="mb-3">
-              <div className="form-floating">
-                <input
-                  type="email"
-                  className="form-control"
-                  id="floatingEmail"
-                  placeholder="Email"
-                />
-                <label htmlFor="floatingEmail">Email</label>
-              </div>
-            </div>
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
           )}
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
           {!isLogin && (
-            <div className="mb-3">
-              <div className="form-floating">
-                <input
-                  type="email"
-                  className="form-control"
-                  id="floatingEmail"
-                  placeholder="Email"
-                />
-                <label htmlFor="floatingNumber">Phone Number</label>
-              </div>
-            </div>
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
           )}
-          {!isLogin && (
-            <div className="mb-3">
-              <div className="form-floating">
-                <input
-                  type="email"
-                  className="form-control"
-                  id="floatingEmail"
-                  placeholder="Email"
-                />
-                <label htmlFor="floatingPass">Password</label>
-              </div>
-            </div>
-          )}
-          <div className="mb-3">
-            <div className="form-floating">
-              <input
-                type="password"
-                className="form-control"
-                id="floatingPassword"
-                placeholder="Password"
-              />
-              <label htmlFor="floatingCnfrmPass">Confirm Password</label>
-            </div>
-          </div>
-          <div className="d-flex justify-content-between">
-            <button
-              type="submit"
-              className="btn btnlog"
-              style={{ backgroundColor: "#5c4033", color: "#fff" }}
-            >
-              {isLogin ? "Login" : "Sign Up"}
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary"
-              onClick={onClose}
-            >
-              Close
-            </button>
-          </div>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          <button type="submit" className="btn btn-primary">
+            {isLogin ? "Login" : "Sign Up"}
+          </button>
         </form>
       </div>
     </div>
