@@ -6,7 +6,7 @@ const Navbar = ({onLoginClick}) => {
   const navigate = useNavigate();
 
   const Move = ()=>{
-    navigate("/main");
+    navigate("/mainpage");
   }
   const scrollToAbout = () => {
     document.getElementById('about').scrollIntoView({ behavior: 'smooth' });

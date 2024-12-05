@@ -1,149 +1,171 @@
-/* General Reset */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    box-sizing: border-box;
-  }
-  
-  /* Main Page Layout */
-  .main-page {
+/* Main Page Layout */
+.main-page-container {
     display: flex;
-    height: 100vh;
-    overflow: hidden;
+    height: 100vh; /* Ensure full viewport height */
+    background-color: #f5fbfa; /* Background color */
   }
   
-  /* Sidebar */
-  .main-sidebar {
-    width: 250px;
-    background-color: #1e293b;
-    color: #ffffff;
+  .side-buttons {
+    width: 20%;
+    background-color: #f5fbfa; /* Same background color */
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    align-items: flex-start;
+    height: 100vh; /* Ensure buttons span the entire height */
+    gap: 15px; /* Space between buttons */
   }
   
-  .main-logo {
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 30px;
-  }
-  
-  .main-logo i {
-    font-size: 28px;
-    color: #4f46e5;
-  }
-  
-  .main-logo span {
-    font-weight: bold;
-  }
-  
-  /* Navigation Items */
-  .main-nav-items {
-    width: 100%;
-  }
-  
-  .main-nav-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    width: 100%;
-    padding: 15px 20px;
-    font-size: 18px;
-    background-color: transparent;
+  .main-button {
+    background-color: black;
+    color: white;
     border: none;
-    color: #ffffff;
-    text-align: left;
+    padding: 10px 20px;
+    border-radius: 15px; /* Curved edges for buttons */
     cursor: pointer;
-    transition: all 0.3s ease;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+    width: 100%; /* Full width buttons */
+    text-align: left;
   }
   
-  .main-nav-item i {
-    font-size: 20px;
-    color: #94a3b8;
-    transition: color 0.3s ease;
+  .main-button:hover {
+    background-color: #81c784; /* Green hover effect */
+    transform: scale(1.05); /* Slightly enlarge the button */
   }
   
-  .main-nav-item:hover {
-    background-color: #4f46e5;
-    color: #ffffff;
-    border-radius: 8px;
+  .main-button.active {
+    background-color: #81c784; /* Active button color */
+    transform: scale(1.05); /* Slightly enlarge the active button */
   }
   
-  .main-nav-item:hover i {
-    color: #ffffff;
-  }
-  
-  .main-nav-item.main-logout {
-    margin-top: auto;
-    background-color: #dc2626;
-    color: #ffffff;
-  }
-  
-  .main-nav-item.main-logout:hover {
-    background-color: #b91c1c;
-  }
-  
-  /* Content Area */
+  /* Main Content on the Right */
   .main-content {
     flex: 1;
-    background-color: #f9fafb;
-    padding: 20px 40px;
+    padding: 20px;
+    overflow-y: auto;
+    height: 100vh; /* Ensure content spans the full height */
+  }
+  
+  .live-events-section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%; /* Fill available space */
     overflow-y: auto;
   }
   
-  .main-content-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+  .event-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
   }
   
-  .main-content-header h1 {
-    font-size: 24px;
-    color: #1e293b;
-  }
-  
-  .main-content-body {
+  .event-card {
     background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
   
-  .main-content-body h2 {
-    color: #4f46e5;
+  .event-card h3 {
+    font-size: 20px;
+    font-weight: bold;
   }
   
-  .main-action-buttons {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
+  .event-card p {
+    margin: 8px 0;
   }
   
-  .main-action-btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #ffffff;
-    background-color: #4f46e5;
+  .event-card button {
+    background-color: black;
+    color: white;
     border: none;
-    border-radius: 8px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    font-size: 16px;
   }
   
-  .main-action-btn i {
-    font-size: 18px;
+  .event-card button:hover {
+    background-color: #81c784; /* Green hover effect */
   }
   
-  .main-action-btn:hover {
-    background-color: #3b82f6;
+  
+  /* Button Hover State with Pink Accent */
+.main-button:hover {
+    background-color: #81c784;
+     /* Pink accent on hover */
+    transform: scale(1.05); /* Slightly enlarge */
   }
+  
+  /* Accent Color for Buttons in Event Cards */
+  .event-card button.pink-hover:hover {
+    background-color: #f473c4; /* Pink accent */
+    color: white; /* Ensure readability */
+  }
+  
+  /* Title with Pink Accent */
+  .live-events-section h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+
+  .event-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f473c4;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .event-button.participated {
+    background-color: #4caf50;
+    color: white;
+    position: relative;
+  }
+  
+  .event-button.participated .tick {
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  .event-button:hover {
+    transform: scale(1.05);
+    background-color: #f473c4;
+
+  }
+  
+  .event-button:active {
+    transform: scale(0.95);
+  }
+  
+  /* Optional: Add keyframes for tick mark animation */
+  @keyframes tick {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.2);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .participated .tick {
+    animation: tick 0.4s ease-in-out;
+  }
+  
   
