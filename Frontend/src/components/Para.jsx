@@ -65,7 +65,7 @@ const Para = () => {
               ].map((stat, index) => (
                 <div
                   key={index}
-                  className={`col-6 col-md-4 mb-3 ${inView ? `animate-from-bottom delay-${index + 3}` : "invisible"}`}
+                  className={`col-6 col-md-4 mb-3  ${inView ? `animate-from-bottom delay-${index + 3}` : "invisible"}`}
                 >
                   <div
                     className="stat-box p-4 rounded"

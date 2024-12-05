@@ -2,17 +2,20 @@ import React from 'react';
 
 const Intro = ({onLoginClick}) => {
   return (
-    <div className="container-fluid intro-container d-flex align-items-center py-0 px-0 ">
+    <div className="container-fluid intro-container d-flex align-items-center py-0 px-0">
       {/* Row to hold both sections */}
-      <div className="row w-100 mx-0 h-100" >
-        {/* Left Section */}
-        <div className="left-section text-container col-12 col-lg-12 col-xl-6" >
+      <div className="row w-100 mx-0 h-100">
+
+        <div className="col-2 d-none d-xxl-block"></div>
+        {/* Left Section (contained inside container-lg) */}
+        <div className="left-section text-center text-container col-12 col-xxl-5 container-lg">
           <h1 className="intro-heading">Welcome, <br />to EventSync</h1>
           <p className="intro-text">
             Your one-stop solution for managing and synchronizing unforgettable events.
           </p>
-          <button onClick={onLoginClick}
-            className="btn intro-btn py-0 px-0"
+          <button
+            onClick={onLoginClick}
+            className="btn intro-btn py-0 px-0 mx-auto"
             style={{
               backgroundColor: 'black',
               color: 'white',
@@ -54,13 +57,12 @@ const Intro = ({onLoginClick}) => {
             }}
           >
             Explore Now
-            <span className='fs-3'
-             style={{ marginLeft: '8px',transition: 'transform 0.3s ease' }}>&#8594;</span> {/* Right arrow */}
+            <span className="fs-3" style={{ marginLeft: '8px', transition: 'transform 0.3s ease' }}>&#8594;</span> {/* Right arrow */}
           </button>
         </div>
 
-        {/* Right Section */}
-        <div className="right-section col-12 col-lg-12 col-xl-6 p-0 position-relative overflow-hidden h-100">
+        {/* Right Section (stays in container-fluid, full width) */}
+        <div className="right-section col-12 col-xxl-5 p-0 position-relative overflow-hidden h-100">
           <img
             src="assets/Gallery/intro.jpg"
             alt="Event"
